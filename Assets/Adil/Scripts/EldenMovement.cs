@@ -42,7 +42,6 @@ public class EldenMovement : MonoBehaviour
     public float gravity = -20f;
     public float groundedGravity = -0.5f;
     public float groundedGracePeriod = 0.2f;
-    public float shift=-.25f;
 
     [Header("References")]
     public Transform cameraTransform;
@@ -233,7 +232,7 @@ public class EldenMovement : MonoBehaviour
         // Formula: NewCenter = FeetY + (NewHeight / 2)
         // Original FeetY = OriginalCenter - (OriginalHeight / 2)
         float feetY = _originalCenterY - (_originalHeight * 0.5f);
-        float newCenterY = feetY + (newHeight * 0.5f+shift);
+        float newCenterY = feetY + (newHeight * 0.5f);
 
         // Apply Physics Changes
         _controller.height = newHeight;
@@ -332,5 +331,8 @@ public class EldenMovement : MonoBehaviour
         animator.SetFloat("Speed", animValue, 0.15f, Time.deltaTime);
     }
 }
+
+
+
 
 
